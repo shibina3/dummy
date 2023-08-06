@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <button id="myBtn" onclick="displayTime()" onmouseover="console.log('You have hovered on me!')" onmouseout="console.log('You have moved out of me!');">Click on Me to know date</button>
+    <input type="text" onchange="console.log('You have changed the value!')" onkeydown="console.log('You have pressed a key!')"> -->
+    <button id="myBtn">Click on me</button>
+    <input type="text" id="myInput">
+    <button onclick="removeEvents()">Remove Events</button>
+    <script>
+        // this
+        console.log(this,'------------THIS-------------');
+        // Events
+        document.getElementById('myBtn').addEventListener('click',displayTime);
+        document.getElementById('myInput').addEventListener('change',function(){
+            console.log('You have changed the value!');
+        });
+        document.getElementById('myBtn').addEventListener('mouseover',function(){
+            console.log('You have hovered on me!');
+        });
+        document.getElementById('myBtn').addEventListener('mouseout',function(){
+            console.log('You have moved out of me!');
+        });
+        document.getElementById('myInput').addEventListener('keydown',function(event){
+          console.log(event.key,'event.key',event.keyCode,'event.keyCode');
+          if(event.key === 'Enter') {
+            alert('Please enter all the fields')
+          }
+            console.log('You have pressed a key!');
+        });
+        function removeEvents() {
+          document.getElementById('myBtn').removeEventListener('click',displayTime);
+          document.getElementById('myInput').removeEventListener('change',function(){
+              console.log('You have changed the value!');
+          });
+          window.removeEventListener('load',function(){
+            alert('Window is loaded!');
+          });
+        }
+
+        window.onload = function() {
+          alert('Window is loaded!');
+        }
+        window.addEventListener('load',function(){
+          alert('Window is loaded!');
+        });
+
+        // JSON
+        let jsonData = [
+  {
+    "id": 1,
+    "name": "Leanne Graham",
+    "username": "Bret",
+    "email": "Sincere@april.biz",
+    "address": {
+      "street": "Kulas Light",
+      "suite": "Apt. 556",
+      "city": "Gwenborough",
+      "zipcode": "92998-3874",
+      "geo": {
+        "lat": "-37.3159",
+        "lng": "81.1496"
+      }
+    },
+    "phone": "1-770-736-8031 x56442",
+    "website": "hildegard.org",
+    "company": {
+      "name": "Romaguera-Crona",
+      "catchPhrase": "Multi-layered client-server neural-net",
+      "bs": "harness real-time e-markets"
+    }
+  },
+  {
+    "id": 2,
+    "name": "Ervin Howell",
+    "username": "Antonette",
+    "email": "Shanna@melissa.tv",
+    "address": {
+      "street": "Victor Plains",
+      "suite": "Suite 879",
+      "city": "Wisokyburgh",
+      "zipcode": "90566-7771",
+      "geo": {
+        "lat": "-43.9509",
+        "lng": "-34.4618"
+      }
+    },
+    "phone": "010-692-6593 x09125",
+    "website": "anastasia.net",
+    "company": {
+      "name": "Deckow-Crist",
+      "catchPhrase": "Proactive didactic contingency",
+      "bs": "synergize scalable supply-chains"
+    }
+  },
+  {
+    "id": 3,
+    "name": "Clementine Bauch",
+    "username": "Samantha",
+    "email": "Nathan@yesenia.net",
+    "address": {
+      "street": "Douglas Extension",
+      "suite": "Suite 847",
+      "city": "McKenziehaven",
+      "zipcode": "59590-4157",
+      "geo": {
+        "lat": "-68.6102",
+        "lng": "-47.0653"
+      }
+    },
+    "phone": "1-463-123-4447",
+    "website": "ramiro.info",
+    "company": {
+      "name": "Romaguera-Jacobson",
+      "catchPhrase": "Face to face bifurcated interface",
+      "bs": "e-enable strategic applications"
+    }
+  }];
+  let stringJSON = JSON.stringify(jsonData);
+  let strToJSON = JSON.parse(stringJSON);
+
+    // Operators
+    // 1. Arithmetic Operators
+    let x = 2;
+    let y = 3;
+    console.log(x+y);
+    console.log(x-y);
+    console.log(x*y);
+    console.log(x/y);
+    console.log(x%y);
+    console.log(x++);
+    console.log(x);
+    console.log(x--);
+    console.log(x);
+    console.log('---------------------------------');
+
+    // 2. Assignment Operators
+    x = 5;
+    console.log(x);
+    x = x+5 // x+=5
+    console.log(x);
+    x = x-5 // x-=5
+    console.log(x);
+    x = x/5  // x/=5
+    x = x%5   // x%=5
+    x = x**3    // 5*5*5  => x**=5
+    console.log(x);
+    console.log("---------------------------------------");
+
+    // 3. Comparison Operators
+    x='3';
+    console.log(x == y);
+    console.log(x != y);
+    console.log(x === y);
+    console.log(x !== y);
+    x = 1;
+    console.log(x < y);
+    console.log(x > y);
+    console.log(x <= y);
+    console.log(x >= y);
+    console.log('--------------------------------');
+
+    // 4. Logical operators
+    console.log(x < 5 && y > 5);
+    console.log(x < 5 || y < 5);
+    console.log(!(x < 5));
+
+    //  05-08-2023
+    function displayTime () {
+      console.log(this,'-----this', this.innerHTML,'this.innerHTML');
+        let currentTime = new Date();
+        let date = currentTime.getDate();
+        let month = currentTime.getMonth()+1;
+        let year = currentTime.getFullYear();
+        let day = currentTime.getDay();
+        let days = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
+        let text = `${date.toString().padStart(2,'0')}-${month.toString().padStart(2,'0')}-${year}------------${days[day]}`;
+        let newDiv = document.createElement('div');
+        newDiv.innerHTML = text;
+        document.body.appendChild(newDiv);
+    }
+    </script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="plusBtn" >+</button>
+    <span id="counter">0</span>
+    <button id="minusBtn">-</button>
+    <button onclick="console.log('You have clicked on me!');" onmouseover="console.log('You have hovered on me!');" onmouseout="console.log('You have moved your cursor out of me!');" onkeydown="console.log('You have pressed a key from your keyboard');" >Hello theree</button>
+    <script>
+        window.addEventListener('load', function(event){
+            console.log("I am loaded!");
+        });
+        document.getElementById('plusBtn').addEventListener('click', function(event){
+            console.log("You have clicked on me!");
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="name" type="text" placeholder="Enter a word">
+    <button onclick="word()">Submit</button>
+    <script>
+        // Hoisting  --> trying to access variable before declaration. SO, variable declaration is moved to top of the scope.
+        // debugger; --> for debugging purpose
+        var a = 5;
+        let b =10;
+        try {
+            let c = 109;
+            c = c ** 2;
+            console.log(c,'--c--');
+
+            const response = fetch('https://jsonplaceholder.typicode.com/users');
+            const data = response.json();
+            console.log('try ends');
+        } catch (error) {
+            console.log(error,'--error--');
+        }
+
+        console.log(a,'--a--');
+        a = a+2;
+        console.log(a,'--a--');
+        b = b+10;
+
+        // Storage --> types  --> local storage, session storage, cookies
+        // local storage --> stores data in browser. Data is not deleted even after closing the browser. Data is deleted only when we clear the browser cache or remove it manually
+        // session storage --> stores data in browser. Data is deleted when we close the browser.
+        // cookies --> stores data in browser. We can set expiry time for cookies. Data is deleted after expiry time.
+        localStorage.setItem('name','Rajesh');
+        sessionStorage.setItem('name','Suresh');
+        localStorage.getItem('name');
+        sessionStorage.getItem('name');
+        var currentTime = new Date();
+        let expiryTime = new Date(currentTime.getTime() + 5 * 60 * 1000);
+        console.log(expiryTime,'expiryTime');
+        document.cookie = "age=20; expires="+ expiryTime.toUTCString() +"; path=/";
+        console.log(document.cookie,'----cookie----');
+        localStorage.removeItem('name');
+        sessionStorage.removeItem('name');
+
+        async function getData() {
+            try {
+                const res = await fetch('https://jsonplaceholder.typicode.com/users');
+                const data = await res.json();
+                console.log(data,'--data--');
+            } catch(error) {
+                console.log(error,'--error--');
+            }
+        }
+        // getData();
+        console.log('------END------');
+
+
+        let today = 8//new Date().getDay();
+
+        // if condition
+        if( today === 0) {
+            console.log('It is Sunday');
+        } else if(today === 1) {
+            console.log('It is Monday');
+        } else if(today === 2) {
+            console.log('It is Tuesday');
+        } else if(today === 3) {
+            console.log('It is Wednesday');
+        } else if(today === 4) {
+            console.log('It is Thursday');
+        } else if(today === 5) {
+            console.log('It is Friday');
+        } else if(today === 6) {
+            console.log('It is Saturday');
+        } else {
+            console.log('Invalid day');
+        }
+
+        // switch case
+        switch(today) {
+            case 0:
+                console.log('It is Sunday');
+                break;
+            case 1:
+                console.log('It is Monday');
+                break;
+            case 2:
+                console.log('It is Tuesday');
+                break;
+            case 3:
+                console.log('It is Wednesday');
+                break;
+            case 4:
+                console.log('It is Thursday');
+                break;
+            case 5:
+                console.log('It is Friday');
+                break;
+            case 6:
+                console.log('It is Saturday');
+                break;
+            default:
+                console.log('Invalid day');
+        }
+
+        // for loop
+        for (let i = 0; i < 10; i++) {
+            console.log(i,'--i--');
+        }
+
+        // do while loop
+        let j = 0;
+        do {
+            console.log(j,'--j--');
+            j++;
+        } while (j < 10);
+
+        const word = () => {
+            let myWord = document.getElementById('name').value;
+            const vowels = ['a','e','i','o','u'];
+            let count = 0
+            for (let i = 0; i < myWord.length; i++) {
+                for (let j = 0; j < vowels.length; j++) {
+                    if(myWord[i] === vowels[j]) {
+                        count++;
+                    }
+                }
+            }
+            let newDiv = document.createElement('div');
+            newDiv.innerHTML = count + " is the number of vowels";
+            document.body.append(newDiv);
+        }
+    </script>
+</body>
+</html>
