@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        console.log(num1,'num1num1');
+        var num1 = 10;
+        var num4;
+        console.log(num4,'num4num4');
+        var username = "Shibina"
+        // console.log(num2,'num2num2');
+        let num2 = 20;
+        let username1 = "ecrefet"
+        const num3 = 30;
+        const username2 = "Shibina"
+        var num1 = 20;
+        console.log(num1,'----');
+        // let num2 = 30;
+        // num3 = num1+10;
+        num2 = num3 + 10;
+
+        function abc() {
+            let x = 10; // let -> block scope
+            if ( x > 5) {
+                let a = 2;
+                const c = 59;   // block scope
+                var b = 5;  // function scope
+                console.log(b,'aaaaaaa',a);
+            }
+            console.log(b,'bbbbbbbb');
+            // console.log(a,'---a---');
+        }
+        abc();
+        // console.log(b,'bbbb');
+
+        // == vs ===
+        let a = 10;
+        let b = "10";
+        console.log(a == b,'---==---');     // == checks only the value
+        console.log(a === b,'---===---');   // === checks both value and data-type
+        console.log(a != b,'---!=---');     // != checks only the value
+        console.log(a !== b,'---!==---');   // !== checks both value and data-type
+
+        let arr1 = [1,2,3];
+        let arr2 = [1,2,3];
+        let str1 = JSON.stringify(arr1);
+        let str2 = JSON.stringify(arr2);
+        console.log(str1 === str2, 'compare arrays');
+        console.log(arr1 === arr2,'---==---');    
+
+        let obj1 = {name:'Shibina', age:20};
+        let obj2 = {name:'Shibina', age:20};
+        let str3 = JSON.stringify(obj1);
+        let str4 = JSON.stringify(obj2);
+        console.log(str3 === str4, 'compare objects');
+        console.log(obj1 === obj2,'---==---');
+
+        console.log(`Hello ${obj1.name}. Your age is ${obj1.age}`);     // template literals
+        console.log('Hello '+obj1.name+'. Your age is '+obj1.age);
+
+        let { name, age} = obj1;    // destructuring
+        let [d,e,f] = arr1;         // destructuring
+
+        console.log(`Hello ${name}. Your age is ${age}`); 
+        console.log(d,'----',e,'----',f);
+        console.log(arr1[0],'----',arr1[1],'----',arr1[2]);
+
+
+        // remove duplicates from an array
+        let arr = [1,2,3,4,5,6,7,8,9,1,2,3,4,5];
+        let newArr = new Set(arr);
+        console.log(newArr, 'new array');
+
+
+        let unqiueArr = [];
+        for (  let i = 0; i < arr.length; i++) {
+            if( !unqiueArr.includes(arr[i])) {
+                unqiueArr.push(arr[i]);
+            }
+        }
+        console.log(unqiueArr, 'unique array');
+
+    </script>
+</body>
+</html>
