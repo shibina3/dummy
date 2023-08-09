@@ -6,6 +6,14 @@
     <title>Document</title>
 </head>
 <body>
+    <div>
+        <label>First Name</label>
+        <input id="fname" type="text" />
+    </div>
+    <div>
+        <label>Last Name</label>
+        <input id="lname" type="text" />
+    </div>
     <script>
         console.log(num1,'num1num1');
         var num1 = 10;
@@ -83,6 +91,60 @@
             }
         }
         console.log(unqiueArr, 'unique array');
+
+
+        // normal function
+        function printName(name) {
+            alert('Hello '+name);
+        }
+        // printName('Shibina');
+
+        // arrow function
+        const pname = "Shibina"
+        const printName1 = (name,age) => alert('Hello '+name);
+        // printName1('Ramesh');
+
+        // Spread Operator - to copy elements from an array/object to another array/object
+        // spread operator to merge array
+        let arr3 = [1,2,3];
+        let arr4 = [4,5,6];
+        let arr5 = [...arr3,...arr4]
+        console.log(arr5, '-----merged array');
+
+        // spread operator to copy elements from one array to another
+        let arr6 = [...arr4];   // deep copy
+        let arr7 = arr3;    // shallow copy
+        arr7[0] = 10;
+        arr6[0] = 20;
+        console.log(arr6, '-----', arr4);
+        console.log(arr7, '-----', arr3);
+
+        // ternary operator
+        let user_age = 20;
+        // before es6
+        if( user_age < 18 ) {
+            alert('You are not eligible to vote');
+        } else {
+            alert('You are eligible to vote');
+        }
+        // after es6
+        user_age < 18 ? alert('You are not eligible to vote') : alert('You are eligible to vote');
+
+        // String methods introduced in es6
+        let user_name = "Pournami Kannamma";
+        console.log(user_name.startsWith("Pour"));  // true
+        console.log(user_name.endsWith("ma"));    // true
+        console.log(user_name.includes("na"));    // true
+        let greeting = " Good Morning   ";
+        console.log('----'+greeting.trimStart()+'-----');  
+        console.log('----'+greeting.trimEnd()+'-----');
+        console.log('-----'+greeting.trim()+'----');
+        console.log(greeting.padStart(17,'*'));
+        console.log(greeting.padEnd(17,'*'));
+
+        // Array methods introduced in es6
+        let name_arr = Array.from('Shibina');   // converts string to array
+        name_arr.join(' ')  // converts array to string
 
     </script>
 </body>
