@@ -145,7 +145,112 @@
         // Array methods introduced in es6
         let name_arr = Array.from('Shibina');   // converts string to array
         name_arr.join(' ')  // converts array to string
+        arr.includes(2);    // checks if the element is present in the array ( after es6 )
+        arr.indexOf(2) !== -1;  // checks if the element is present in the array ( before es6 )
+        arr.flat(); // flattens the first nested array
+        arr.flat(Infinity);     // flattens all the nested arrays
 
+        arr = [2,4,6,8,10];
+        // before es6
+        let newArr1 = [];
+        for(let i=0; i<arr.length; i++) {
+            newArr1.push(arr[i] * 10);
+        }
+        // after es6
+        let newArr2 = arr.map(value => value * 10);
+
+        // filter (before es6)
+        let filteredArr = [];
+        for(let i=0; i<arr.length; i++) {
+            if(arr[i] > 5) {
+                filteredArr.push(arr[i]);
+            }
+        }
+        //after es6 
+        let filteredArr1 = arr.filter(value => value > 5);      // filters all the elements that are greater than 5
+        let findArr = arr.find(value => value > 5);     // returns the first element that is greater than 5
+
+        // Object methods introduced in es6
+        let student1 = {
+            name : "Jegan",
+            age: 20,
+            address: "CHennai",
+            qualification : "B.E",
+            blood_group : "B+ve"
+        }
+
+        Object.keys(student1);  // returns all the keys of the object
+        Object.values(student1);    // returns all the values of the object
+        Object.entries(student1);   // returns all the key-value pairs of the object
+
+        // before es6 
+        let student2 = {
+            name : "Renuka",
+            age: 22,
+            address: "CHennai",
+            qualification : "B.E",
+            blood_group : "B+ve"
+        }
+
+        let student3 = {
+            name : "Kargil",
+            age: 12,
+            address: "CHennai",
+            qualification : "B.A",
+            blood_group : "B-ve"
+        }
+
+        let student4 = {
+            name : "Karthik",
+            age: 25,
+            address: "CHennai",
+            qualification : "B.E",
+            blood_group : "B+ve"
+        }
+
+        let student5 = {
+            name : "Arun",
+            age: 25,
+            address: "CHennai",
+            qualification : "B.E",
+            blood_group : "B+ve"
+        }
+
+        // after es6
+        // class is used to create objects. The first method that gets triggered when a class is created is constructor
+        class Student {
+            constructor(name, age, address, qualification, blood_group) {
+                this.name = name;
+                this.age = age;
+                this.address = address;
+                this.qualification = qualification;
+                this.blood_group = blood_group;
+            }
+        }
+        
+        let stu1 = new Student("Jegan", 20, "Chennai", "B.E", "B+ve");
+        let stu2 = new Student("Renuka", 22, "Chennai", "B.E", "B+ve");
+        let stu3 = new Student("Kargil", 12, "Chennai", "B.A", "B-ve");
+        let stu4 = new Student("Karthik", 25, "Chennai", "B.E", "B+ve");
+        let stu5 = new Student("Arun", 25, "Chennai", "B.E", "B+ve");
+
+        class Vehicle {
+            constructor(type, color, brand) {
+                this.type = type;
+                this.color = color;
+                this.brand = brand;
+            }
+            printHello() {
+                console.log("helloooo");
+            }
+        }
+
+        let auto = new Vehicle("Auto", "Yellow", "Bajaj");
+        let car = new Vehicle("Car", "Red", "Maruti");
+        let bus = new Vehicle("Bus", "Blue", "Tata");
+        auto.printHello();
+        bus.printHello();
+        console.log(auto, car, bus);
     </script>
 </body>
 </html>
